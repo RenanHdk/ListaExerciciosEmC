@@ -293,3 +293,90 @@ int main(){
 		
 	return 0;
 }
+
+#include <stdio.h>
+
+/*
+Autor: Renan Hideki Sugiura
+EX - 10
+
+Entrada: 16 valores
+Saida: Quantos valores são maiores que 10
+Processo: armazenar em uma arrary bidimensional 4x4
+*/
+
+int main(){
+	
+	int lst[4][4], i, j, maior = 0;
+	for(i=0; i<4; i++){
+		for(j=0; j<4; j++){
+			
+			printf("V[%d][%d]: ", i, j); scanf("%d", &lst[i][j]);
+			
+			if(lst[i][j]>10)
+				maior++;
+		}
+	}
+	
+	printf("Valores maiores que 10: %d", maior);
+	
+	return 0;
+}
+
+#include <stdio.h>
+
+/*
+Autor: Renan Hideki Sugiura
+EX - 11
+
+Entrada: Nehum input
+Saida: Matriz com a diagonal principal preenchida por 1
+Processamento: Caso os index da array bidimensional sejam iguais, atribuir valor 1
+*/
+
+int main(){
+	int matriz[5][5], i, j;
+	for(i=0; i<5; i++){
+		for(j=0; j<5; j++){
+			if(i==j)
+				matriz[i][j]=1;
+			else
+				matriz[i][j]=0;
+		}
+	}
+	
+	for(i=0; i<5; i++){
+		for(j=0; j<5; j++){
+			printf("  %d  ", matriz[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+#include <stdio.h>
+
+/*
+Autor: Renan Hideki Sugiura
+EX - 12
+
+Entrada: 16 valores
+Saida: posicao do maior valor e ele mesmo
+Processamento: Armazenar em matriz 4x4, criar loop para achar maior valor e sua posicao
+*/
+
+int main(){
+	int matriz[4][4], i, j, linha, coluna, maior;
+	for(i=0; i<4; i++){
+		for(j=0; j<4; j++){
+			printf("V[%d][%d]: ", i, j); scanf("%d", &matriz[i][j]);
+			if(i==0 && j==0 || matriz[i][j] > maior){
+				maior = matriz[i][j];
+				linha = i;
+				coluna = j;
+			}
+		}
+	}
+	
+	printf("Maior valor -> V[%d][%d]: %d", linha, coluna, matriz[linha][coluna]);
+	return 0;
+}
