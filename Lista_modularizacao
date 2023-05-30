@@ -64,6 +64,37 @@ int tipoTriangulo(int a, int b, int c, int check){
 
 
 
+#include <stdio.h>
+
+/*
+
+Exercício - MMC
+Autor: Renan Hideki Sugiura
+Saída: mmc entre os dois valores entrados pelo usuário
+Entrada: dois valores inteiros 
+processamento: Caso eles tenham um multiplicante em comum, retornar o maior valor, caso contrário retornar sua multiplicação
+*/
+
+int mmc(int a, int b){
+	if(a%b==0)
+		return a;
+	else if(b%a==0)
+		return b;
+	else
+		return a*b;
+}
+
+int main(){
+	int a, b;
+	printf("Insira o primeiro valor: "); scanf("%d", &a);
+	printf("Insira o segundo o valor: "); scanf("%d", &b);
+	int resposta = mmc(a, b);
+	printf("O MMC dos valores %d e %d e igual a %d", a, b, resposta);
+	
+	return 0; 
+}
+
+
 
 
 /*
