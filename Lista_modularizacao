@@ -154,3 +154,191 @@ int primo(int n){
 		return 0;
 	}
 }
+
+
+#include <stdio.h>
+#include <locale.h>
+
+/*
+Exercicio Fibonacci
+Autor: Renan Hideki Sugiura
+
+Saída: os termos da sequencia até a posição que foi inserida pelo usuário
+Entrada: posição da sequencia 
+Processamento: utilização de uma variavel como temporário, assim alterando três variáveis simultaneamente, se assemelhando a um 
+triângulo se movimentando
+
+*/
+
+int Fibonacci(int n){
+	int i, a=0, b=1, c=a+b;
+	for(i = 2; i<n; i++){
+		a = b;
+		b = c;
+		c = a + b;
+	}
+	if(n==0) return a;
+	return c;
+}
+
+int main(){
+	setlocale(LC_ALL, "Portuguese");
+	int i, n; printf("Insira a posição desejada(inicio em 0): "); scanf("%d", &n);
+	for(i=0; i<=n; i++)
+		printf(" %d ", Fibonacci(i));
+	return 0;
+}
+
+
+
+#include <stdio.h>
+
+/*
+Exercício somatorio
+Autor: Renan Hideki Sugiura
+
+Saída: Resultado do somatorio ate o numero n
+Entrada: Valor do n
+Processamento: Incrmenteação de um contador com o valor do somatorio para cada termo até o valor n,
+int cluindo o próprio n
+*/
+
+int somatorio(int n){
+	int count = 0, i;
+	for(i = 1; i<=n; i++)
+		count += (5 * (i*i) + (2*i) + 8);
+	return count;
+}
+
+int main(){
+	int n; printf("Insira até qual valor o somatório deve prosseguir: "); scanf("%d", &n);
+	while(n<=0){
+		printf("Valor invalido, insira novamente: "); scanf("%d", &n);
+	}
+	printf("Somatorio: %d", somatorio(n));
+	
+	return 0;
+}
+
+#include <stdio.h>
+
+/*
+Exercicio - Rotação de valores
+Autor: Renan Hideki Sugiura
+
+Saida: valores rotacionados
+Entrada: valores a serem rotacionados
+Processamento: Utilizando ponteiros como parâmetros, apontá-los diretamente para 
+o endereço de memória da variável e alterar então, o seu conteúdo
+*/
+
+void rotacao(int *a, int *b, int *c){
+	int tmp = *a;
+	*a = *b;
+	*b = *c; 
+	*c = tmp;
+}
+
+int main(){
+	int a = 5, b = 8, c = 9;
+	printf("a: %d\nb: %d\nc: %d", a, b, c);
+	rotacao(&a, &b, &c);
+	printf("\n\na: %d\nb: %d\nc: %d", a, b, c);
+}
+
+
+
+#include <stdio.h>
+
+
+/*
+Exercicio - triangulos
+Autor: Renan Hideki Sugiura
+
+Saida: quatro tipos de triangulos
+Entrada: tamanho dos triangulos
+Processamento: Uma função para cada tipo de triangulo
+Utilizam de aninhamento de loops, para processar linha, pula linha e atualiza condicional, 
+sendo que, para cada função, cumprir a condicional pode formar ou o espaço oui o triângulo
+
+*/
+
+
+void trianguloA(int tamanho){
+	printf("Triangulo A: \n");
+	int i, j, count = tamanho-1;
+	for(i=0; i<tamanho; i++){
+		for(j = 0; j < tamanho; j++){
+			if(j<count)
+				printf(" ");
+			else
+				printf("*");
+		}
+		count--;
+		printf("\n");
+	}
+	printf("\n");
+}
+
+void trianguloB(int tamanho){
+	printf("Triangulo B: \n");
+	int i, j, count = tamanho;
+	for(i=0; i<tamanho; i++){
+		for(j = 0; j < tamanho; j++){
+			if(j<count)
+				printf("*");
+			else
+				printf(" ");
+		}
+		count--;
+		printf("\n");
+	}
+	printf("\n");
+}
+
+void trianguloC(int tamanho){
+	printf("Triangulo C: \n");
+	int i, j, count = 1;
+	for(i=0; i<tamanho; i++){
+		for(j = 0; j < tamanho; j++){
+			if(j<count)
+				printf("*");
+			else
+				printf(" ");
+		}
+		count++;
+		printf("\n");
+	}
+	printf("\n");
+}
+
+void trianguloD(int tamanho){
+	printf("Triangulo D: \n");
+	int i, j, count = 0;
+	for(i=0; i<tamanho; i++){
+		for(j = 0; j < tamanho; j++){
+			if(j<count)
+				printf(" ");
+			else
+				printf("*");
+		}
+		count++;
+		printf("\n");
+	}
+	printf("\n");
+}
+
+int main(){
+	
+	int tamanho; printf("Insira o tamanho dos triangulos: "); scanf("%d", &tamanho);
+	while(tamanho<=1){
+		printf("Valor invalido, insira novamente: "); scanf("%d", &tamanho);
+	}
+	
+	trianguloA(tamanho);
+	trianguloB(tamanho);
+	trianguloC(tamanho);
+	trianguloD(tamanho);
+	
+	return 0;
+}
